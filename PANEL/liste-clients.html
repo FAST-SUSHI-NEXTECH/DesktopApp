@@ -26,58 +26,49 @@
 
   <script src="main.js"></script>
   <script src="renderer.js"></script>
-  <script src="InfoUser.js"></script>
 
-    <!--Pop up client-->
-  <button onclick="togglePopup()">Info</button>
-  <div id="popup-overlay">
-    <div class="popup-content">
-      <h2>Informations sur les Users.</h2>
-      
-      
-      <a href="javascript:void(0)" onclick="togglePopup()" class="popup-Exit">Fermer</a>
-    </div>
-  </div>
-  
   <div id="content-container">
     <h2>Liste Users</h2>
-    <ul class="client-list">
-      <li class="client-item">
-        <div class="client-details">
-          <div>
-            <h2>USER 1</h2>
-            <p>Mail: Client1@exemple.com</p>
-            <p>Téléphone: 06 28 47 85 15</p>
-            <button onclick="togglePopup()">Info complémentaires</button>
-            
-          </div>
-        </div>
-      </li>
-
-      <li class="client-item">
-        <div class="client-details"><div>
-            <h2>USER 2</h2>
-            <p>Mail: Client2@exemple.com</p>
-            <p>Téléphone: 06 28 47 85 15</p>
-            <button onclick="togglePopup()">Info complémentaires</button>
-          </div>
-        </div>
-      </li>
-
-      <li class="client-item">
-        <div class="client-details"><div>
-            <h2>USER 3</h2>
-            <p>Mail: Client3@exemple.com</p>
-            <p>Téléphone: 06 78 87 85 45</p>
-            <button onclick="togglePopup()">Info complémentaires</button> 
-              </div>
-            </div>
-      
-          </div>
-      </li>
-      <!-- Ajoutez d'autres éléments de liste selon vos besoins -->
-    </ul>
-  </div>
-  </div>
-</body>
-</html>
+    <table class="client-list">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Type de user</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="client-item">
+                <td>1</td>
+                <td>Client</td>
+                <td>dupont</td>
+                <td>Chrisitan</td>
+                <td>client1@example.com</td>
+                <td>
+                </td>
+            </tr>
+            <tr class="client-item">
+                <td>2</td>
+                <td>Client</td>
+                <td>Nom du Client 2</td>
+                <td>Prénom du Client 2</td>
+                <td>client2@example.com</td>
+                <td>
+                    
+                </td>
+            </tr>
+            <tr class="client-item">
+                <td>3</td>
+                <td>Client</td>
+                <td>Nom du Client 3</td>
+                <td>Prénom du Client 3</td>
+                <td>client3@example.com</td>
+                <td>
+                </td>
+            </tr>
+            <!-- Ajoutez d'autres lignes selon vos besoins -->
+        </tbody>
+    </table>
+</div>
