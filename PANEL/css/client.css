@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    padding-top: 20px;
+    color: orangered;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .FastSushi {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 40px;
+  }
+  .image-sushi img {
+    width: 100px;
+    height:auto;
+  }
+  
+  .FastSushi h2 {
+    margin: 0;
+  }
+
+  .FastSushi .Fast {
+    color: orangered;
+  }
+  
+  .FastSushi .Sushi {
+    color: whitesmoke;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  ul li {
+    padding: 10px;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: whitesmoke;
+    display: block;
+    border-radius: 10px; 
+    padding: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  ul li a:hover {
+    background-color: white;
+    color: #111;
+  }
+  
+  #logout {
+    margin-top: 20px;
+    background-color: #d9534f;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  #logout:hover {
+    background-color: #c9302c;
+  }
+  
+  .logo-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #content-container {
+    width: auto;
+    margin: 80px 15px;
+    background-color: #ffffff00;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-left: 270px;
+    padding: 20px;
+  }
+  
+  .client-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .client-item {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .client-item:nth-child(even) {
+    background-color: #000000; /* Ligne blanche */
+    color: #f4f4f4;
+  }
+  
+  .client-item:nth-child(odd) {
+    background-color: #ffffff; /* Ligne noire */
+    color: #000000; /* Texte en blanc sur la ligne noire */
+  }
+  
+  .client-item:last-child {
+    border-bottom: none;
+  }
+  
+  .client-details {
+    display: flex;
+    align-items: center;
+  }
+  
+  .client-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  h2, p {
+    margin: 0;
+  }
+
+  
+  
