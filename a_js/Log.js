@@ -3,10 +3,10 @@ function loginUser() {
     var password = document.getElementById("password").value;
 
     if (username === "test" && password === "1") {
-        window.location.href = "index.html";
+        window.location.href = "../html/index.html";
         return false;
     } else {
-        alert("Votre dentifiant ou votre mot de passe est incorrect");
+        alert("Votre identifiant ou votre mot de passe est incorrect");
         return false;
     }
 }

@@ -11,7 +11,7 @@ const createWindow = () => {
     }
   })
 
-  mainWindow.loadFile('Log.html')
+  mainWindow.loadFile('./html/Log.html')
 }
 app.whenReady().then(() => {
   createWindow()
