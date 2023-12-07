@@ -1,27 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Log.css">
+    <link rel="stylesheet" href="css/Log.css">
 </head>
 <body>
-    
-</body>
-</html>
-<div class="form">
-    <div class="form__box">
-      <div class="form__left">
-        <div class="form__padding"><img class="form__image" src="C:\Users\denis\OneDrive\Documents\Dossier Code\Github\projet sushi\Panel\image\logo_blanc.png"/></div>
-      </div>
-      <div class="form__right">
-        <div class="form__padding-right">
-          <form>
-            <h1 class="form__title">Connexion</h1>
-            <input class="form__id" type="text" placeholder="Identifiant"/>
-            <input class="form__password" type="text" placeholder="******"/>
-            <input class="form__submit-btn" type="submit" value="Se connecter"/>
+  <div class="form">
+      <div class="form__box">
+        <div class="form__left">
+          <div class="form__padding"><img class="form__image" src="C:\Users\denis\OneDrive\Documents\Dossier Code\Github\projet sushi\Panel\image\logo_blanc.png"/></div>
+        </div>
+        <div class="form__right">
+          <div class="form__padding-right">
+            <form id="loginForm" onsubmit="return loginUser()">
+              <h1 class="form__title">Connexion</h1>
+              <input id="username" class="form__id" type="text" placeholder="Identifiant" required/>
+              <input id="password" class="form__password" type="password" placeholder="******" required/>
+              <input class="form__submit-btn" type="submit" value="Se connecter"/>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <script src="log.js"></script>
+</body>
+</html>

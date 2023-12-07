@@ -46,7 +46,7 @@ body {
 }
 
 .form__image {
-  width: 80%; /* Ajustement de la largeur de l'image */
+  width: 80%; 
   max-width: 100px;
   height: auto;
   border-radius: auto;
