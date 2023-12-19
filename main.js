@@ -2,7 +2,6 @@
 
 const { app, BrowserWindow } = require('electron');
 const path = require('node:path');
-const fetch = require('node-fetch'); // Import fetch correctly
 const { chargerDonneesDepuisAPI } = require('./a_js/Api'); // Adjust the path accordingly
 
 const createWindow = () => {
@@ -18,7 +17,7 @@ const createWindow = () => {
     mainWindow.loadFile('./html/Log.html');
 
     // Call the imported function
-    chargerDonneesDepuisAPI(mainWindow.webContents); // Pass webContents to the function
+    chargerDonneesDepuisAPI();
 };
 
 app.whenReady().then(() => {
