@@ -1,7 +1,8 @@
 // main.js
+
 const { app, BrowserWindow } = require('electron');
 const path = require('node:path'); 
-const { chargerDonneesDepuisAPI } = require('./a_js/Api');
+const { chargerDonneesDepuisAPI } = require('./a_js/Api'); // Adjust the path accordingly
 
 const createWindow = () => {
     // Enable tabs
@@ -25,5 +26,4 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
     });
-    chargerDonneesDepuisAPI(mainWindow.webContents);
 });
