@@ -1,7 +1,6 @@
-const {token, url} = require('../config.json')
-// Api.js
+const {token, url_client} = require('../config.json')
 async function chargerDonneesDepuisAPI(webContents) {
-    const urlAPI = url;
+    const urlAPI = url_client;
 
     try {
         const reponse = await fetch(urlAPI, {
@@ -17,9 +16,7 @@ async function chargerDonneesDepuisAPI(webContents) {
         }
 
         const donnees = await reponse.json();
-        console.log('Data from API:', donnees);
-
-        // Update the user interface in the renderer process
+        console.log(donnees);
         webContents.send('update-data', donnees);
 
     } catch (erreur) {
