@@ -1,7 +1,7 @@
 // main.js
 
 const { app, BrowserWindow } = require('electron');
-const path = require('node:path');
+const path = require('node:path'); 
 const { chargerDonneesDepuisAPI } = require('./a_js/Api'); // Adjust the path accordingly
 
 const createWindow = () => {
@@ -17,7 +17,7 @@ const createWindow = () => {
     mainWindow.loadFile('./html/Log.html');
 
     // Call the imported function
-    chargerDonneesDepuisAPI();
+    chargerDonneesDepuisAPI(mainWindow.webContents);
 };
 
 app.whenReady().then(() => {

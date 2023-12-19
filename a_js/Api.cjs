@@ -1,4 +1,5 @@
 // Api.js
+const fetch = require('node-fetch');
 
 async function chargerDonneesDepuisAPI(webContents) {
     const urlAPI = 'http://185.255.112.208:3000/user/client';
