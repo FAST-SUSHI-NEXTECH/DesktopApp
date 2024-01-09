@@ -1,4 +1,6 @@
-import { token, url_client } from '../config.json' assert { type: 'json' };
+import config from '../config.json' assert { type: 'json' };
+const { token, url_client } = config;
+
 async function chargerDonneesDepuisAPI(webContents) {
     const urlAPI = url_client;
 
@@ -23,4 +25,5 @@ async function chargerDonneesDepuisAPI(webContents) {
         console.error('Une erreur s\'est produite lors de la récupération des données:', erreur);
     }
 }
+
 export default { chargerDonneesDepuisAPI };

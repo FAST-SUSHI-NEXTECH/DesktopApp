@@ -1,6 +1,6 @@
 import { app, BrowserWindow } from 'electron';
 import { join } from 'path';
-import { chargerDonneesDepuisAPI } from './a_js/Api.js';
+import Api from './a_js/Api_get.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -19,7 +19,7 @@ const createWindow = () => {
 
     mainWindow.loadFile('./html/Log.html');
 
-    chargerDonneesDepuisAPI(mainWindow.webContents);
+    Api.chargerDonneesDepuisAPI(mainWindow.webContents);
 };
 
 app.whenReady().then(() => {
