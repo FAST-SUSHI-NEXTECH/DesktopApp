@@ -1,33 +1,9 @@
-const fetch = require('node-fetch');
-const {token, url_client} = require('../config.json')
+import fetch from 'node-fetch';
+import { url_login } from '../config.json' assert { type: 'json' };
 
-async function chargerDonneesDepuisAPI(webContents) {
-    const urlAPI = url_client;
-
-    try {
-        const reponse = await fetch(urlAPI, {
-            method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-
-        if (!reponse.ok) {
-            throw new Error(`Erreur HTTP! Statut: ${reponse.status}`);
-        }
-
-        const donnees = await reponse.json();
-
-        webContents.send('update-data', donnees);
-
-    } catch (erreur) {
-        console.error('Une erreur s\'est produite lors de la récupération des données:', erreur);
-    }
-}
 
 async function loginUser(username, password) {
-    const url = 'http://185.255.112.208:3000/login';
+    const url = url_login;
 
     try {
         const response = await fetch(url, {
@@ -54,4 +30,4 @@ async function loginUser(username, password) {
     }
 }
 
-module.exports = { chargerDonneesDepuisAPI, loginUser };
+export default { chargerDonneesDepuisAPI, loginUser };

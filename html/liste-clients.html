@@ -37,7 +37,11 @@
           <th>Prénom</th>
           <th>Téléphone</th>
           <th>Email</th>
-        
+        <script>
+          fetch('http://185.255.112.208:3000/user/client')
+          .then(response => response.json())
+          
+        </script>
         </tr>
       </thead>
       <tbody id="client-list"></tbody>

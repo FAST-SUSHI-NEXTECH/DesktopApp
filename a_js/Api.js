@@ -1,4 +1,4 @@
-const {token, url_client} = require('../config.json')
+import { token, url_client } from '../config.json' assert { type: 'json' };
 async function chargerDonneesDepuisAPI(webContents) {
     const urlAPI = url_client;
 
@@ -23,5 +23,4 @@ async function chargerDonneesDepuisAPI(webContents) {
         console.error('Une erreur s\'est produite lors de la récupération des données:', erreur);
     }
 }
-
-module.exports = { chargerDonneesDepuisAPI };
+export default { chargerDonneesDepuisAPI };
