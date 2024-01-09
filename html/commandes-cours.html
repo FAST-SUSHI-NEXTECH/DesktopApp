@@ -24,6 +24,53 @@
     <button id="logout">Quitter l'application</button>
   </div>
 
+  <!--Liste de client-->
+  <div class="content">
+    <h1>Liste des Commandes</h1>
+    <table id="client-table">
+      <thead>
+        <tr>
+          <!--Intitule de la liste-->
+          <th>ID_order</th>
+          <th>Client</th>
+          <th>Préparateur</th>
+          <th>état de la commande</th>
+          <th>date de la commande</th>
+        </tr>
+      </thead>
+      <tbody id="client-list"></tbody>
+    </table>
+  </div>
+
+  <script>
+    fetch('http://185.255.112.208:3000/order', {
+   method: 'GET',
+   headers: {
+     'Accept': 'application/json',
+     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImNoaWVmIiwiaWF0IjoxNzA0Nzk0OTk5LCJleHAiOjE3MDQ4ODEzOTl9.qOTIEtDf8885dsq-FewgL4scwOo31vQh0InXb06axHE',
+   }
+ })
+     .then(response => response.json())
+     .then(data => {
+       const clientList = document.getElementById('client-list');
+       data.forEach((client) => {
+         const tr = document.createElement('tr');
+         tr.innerHTML = `
+         <td>${client.id_order}</td>
+         <td>${client.id_client}</td>
+         <td>${client.id_picker}</td>
+         <td>${client.order_state}</td>
+         <td>${client.date}</td>
+         `;
+         clientList.appendChild(tr);
+       });
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+     });
+   </script>
+
+
 
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>

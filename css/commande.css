@@ -81,3 +81,25 @@ ul li a:hover {
   color: inherit;
   cursor: pointer;
 }
+.content {
+padding: 20px;
+margin-left: 235px;
+}
+
+#client-table {
+width: 90%;
+margin-left: auto; 
+margin-right: auto;
+border-collapse: collapse;
+margin-top: 20px;
+}
+
+#client-table th, #client-table td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+#client-table th {
+background-color: #f2f2f2;
+}
