@@ -24,6 +24,58 @@
     <button id="logout">Quitter l'application</button>
   </div>
 
+<!--gestion des ingrédients-->
+<div class="content">
+  <h1>Liste des ingrédients</h1>
+  <table id="ingredient-table">
+    <thead>
+      <tr>
+        <!--Intitule de la liste-->
+        <th>id produit</th>
+        <th>nom du produit</th>
+        <th>prix</th>
+        <th>quantité</th>
+        <th>description</th>
+      </tr>
+    </thead>
+    <tbody id="ingredient-liste"></tbody>
+  </table>
+</div>
+<script>
+  fetch('../config.json')
+    .then(response => response.json())
+    .then(config => {
+      fetch(`${config.url_order}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${config.token}`,
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const clientList = document.getElementById('client-list');
+        data.forEach((client) => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+          <td>${client.id_order}</td>
+          <td>${client.id_client}</td>
+          <td>${client.id_picker}</td>
+          <td>${client.order_state}</td>
+          <td>${client.date}</td>
+          `;
+          clientList.appendChild(tr);
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+</script>
+
 
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>

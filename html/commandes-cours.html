@@ -43,34 +43,39 @@
   </div>
 
   <script>
-    fetch('http://185.255.112.208:3000/order', {
-   method: 'GET',
-   headers: {
-     'Accept': 'application/json',
-     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJhZG1pbiIsInBlcm0iOjMsImlhdCI6MTcwNTk5Njg0OSwiZXhwIjoxNzA2MDgzMjQ5fQ.Bx6dv_sRix62_SGhcTuL7s0V2cYYGOLUBsb6_ph3cw4',
-   }
- })
-     .then(response => response.json())
-     .then(data => {
-       const clientList = document.getElementById('client-list');
-       data.forEach((client) => {
-         const tr = document.createElement('tr');
-         tr.innerHTML = `
-         <td>${client.id_order}</td>
-         <td>${client.id_client}</td>
-         <td>${client.id_picker}</td>
-         <td>${client.order_state}</td>
-         <td>${client.date}</td>
-         `;
-         clientList.appendChild(tr);
-       });
-     })
-     .catch((error) => {
-       console.error('Error:', error);
-     });
-   </script>
-
-
+    fetch('../config.json')
+      .then(response => response.json())
+      .then(config => {
+        fetch(`${config.url_order}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${config.token}`,
+          }
+        })
+        .then(response => response.json())
+        .then(data => {
+          const clientList = document.getElementById('client-list');
+          data.forEach((client) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+            <td>${client.id_order}</td>
+            <td>${client.id_client}</td>
+            <td>${client.id_picker}</td>
+            <td>${client.order_state}</td>
+            <td>${client.date}</td>
+            `;
+            clientList.appendChild(tr);
+          });
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  </script>
 
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>
