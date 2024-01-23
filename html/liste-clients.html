@@ -47,38 +47,54 @@
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>
   <script>
-    fetch('../config.json')
-      .then(response => response.json())
-      .then(config => {
-        fetch(`${config.url_client}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${config.token}`,
-          }
-        })
+    document.addEventListener('DOMContentLoaded', function () {
+      // Fetch les données des clients depuis le serveur
+      fetch('../config.json')
         .then(response => response.json())
-        .then(data => {
-          const clientList = document.getElementById('client-list');
-          data.forEach((client) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-            <td>${client.id_user}</td>
-            <td>${client.last_name}</td>
-            <td>${client.first_name}</td>
-            <td>${client.tel}</td>
-            <td>${client.email}</td>
-            `;
-            clientList.appendChild(tr);
+        .then(config => {
+          fetch(`${config.url_client}`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Authorization': `Bearer ${config.token}`,
+            }
+          })
+          .then(response => response.json())
+          .then(data => {
+            const clientList = document.getElementById('client-list');
+  
+            // Ajoutez les clients à la table
+            data.forEach((client) => {
+              const tr = document.createElement('tr');
+              tr.innerHTML = `
+                <td>${client.id_user}</td>
+                <td><a href="#" class="client-link" data-client-id="${client.id_user}">${client.last_name}</a></td>
+                <td>${client.first_name}</td>
+                <td>${client.tel}</td>
+                <td>${client.email}</td>
+              `;
+              clientList.appendChild(tr);
+            });
+  
+            // Ajoutez un gestionnaire d'événements pour les liens dans la liste des clients
+            clientList.addEventListener('click', function (event) {
+              if (event.target.classList.contains('client-link')) {
+                event.preventDefault();
+                const clientId = event.target.getAttribute('data-client-id');
+                // Redirigez l'utilisateur vers la fiche du client en utilisant l'ID
+                window.location.href = `fiche-client.html?id=${clientId}`;
+              }
+            });
+          })
+          .catch((error) => {
+            console.error('Error:', error);
           });
         })
         .catch((error) => {
           console.error('Error:', error);
         });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    });
   </script>
+  
 </body>
 </html>
