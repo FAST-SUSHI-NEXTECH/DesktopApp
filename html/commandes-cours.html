@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FastSushi | Panel Admin</title>
+  <link rel="stylesheet" href="../css/commande.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="FastSushi">
+      <a href="index.html" class="logo-link">
+      <div class="image-sushi"><img src="C:\images\logo_blanc.png"></div>
+        <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
+      </a>
+    </div>
+    <ul>
+      <li><a href="liste-clients.html">Liste Client</a></li>
+      <li><a href="admin-menus.html">Admin Menus</a></li>
+      <li><a href="gestion-ingredients.html">Gestion Ingrédients</a></li>
+      <li><a href="ticket.html">Ticket</a></li>
+      <li><a href="commandes-cours.html">Historique de commande</a></li>
+      <li><a href="parametres.html">Paramètres</a></li>
+    </ul>
+    <button id="logout">Quitter l'application</button>
+  </div>
+
+  <!--Liste de client-->
+  <div class="content">
+    <h1>Liste des Commandes</h1>
+    <table id="client-table">
+      <thead>
+        <tr>
+          <!--Intitule de la liste-->
+          <th>ID_order</th>
+          <th>Client</th>
+          <th>Préparateur</th>
+          <th>état de la commande</th>
+          <th>date de la commande</th>
+        </tr>
+      </thead>
+      <tbody id="client-list"></tbody>
+    </table>
+  </div>
+
+  <script>
+    fetch('http://185.255.112.208:3000/order', {
+   method: 'GET',
+   headers: {
+     'Accept': 'application/json',
+     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJhZG1pbiIsInBlcm0iOjMsImlhdCI6MTcwNTE1MjE4NSwiZXhwIjoxNzA1MjM4NTg1fQ.CBAzWzMIj9TGZr_GGYf-W_yvbvpXAM2Tj7tIwGRnn7s',
+   }
+ })
+     .then(response => response.json())
+     .then(data => {
+       const clientList = document.getElementById('client-list');
+       data.forEach((client) => {
+         const tr = document.createElement('tr');
+         tr.innerHTML = `
+         <td>${client.id_order}</td>
+         <td>${client.id_client}</td>
+         <td>${client.id_picker}</td>
+         <td>${client.order_state}</td>
+         <td>${client.date}</td>
+         `;
+         clientList.appendChild(tr);
+       });
+     })
+     .catch((error) => {
+       console.error('Error:', error);
+     });
+   </script>
+
+
+
+  <script src="../main.js"></script>
+  <script src="../a_js/renderer.js"></script>
+</body>
+</html>

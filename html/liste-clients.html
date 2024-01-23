@@ -14,11 +14,11 @@
       </a>
     </div>
     <ul>
-      <li id="listeClientsLink"><a href="liste-clients.html">Liste Client</a></li>
+      <li><a href="liste-clients.html">Liste Client</a></li>
       <li><a href="admin-menus.html">Admin Menus</a></li>
       <li><a href="gestion-ingredients.html">Gestion Ingrédients</a></li>
       <li><a href="ticket.html">Ticket</a></li>
-      <li><a href="Historique-commande.html">Historique de commande</a></li>
+      <li><a href="commandes-cours.html">Historique de commande</a></li>
       <li><a href="parametres.html">Paramètres</a></li>
     </ul>
     <button id="logout">Quitter l'application</button>
@@ -37,17 +37,41 @@
           <th>Prénom</th>
           <th>Téléphone</th>
           <th>Email</th>
-        
         </tr>
       </thead>
       <tbody id="client-list"></tbody>
-      
+
     </table>
   </div>
 
-  <script src="../a_js/Api.js"></script>
-  <script src="../a_js/renderer.js"></script>
   <script src="../main.js"></script>
-  
+  <script src="../a_js/renderer.js"></script>
+  <script>
+   fetch('http://185.255.112.208:3000/user/client', {
+  method: 'GET',
+  headers: {
+    'Accept': 'application/json',
+    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJhZG1pbiIsInBlcm0iOjMsImlhdCI6MTcwNTE1MjE4NSwiZXhwIjoxNzA1MjM4NTg1fQ.CBAzWzMIj9TGZr_GGYf-W_yvbvpXAM2Tj7tIwGRnn7s',
+  }
+})
+    .then(response => response.json())
+    .then(data => {
+      const clientList = document.getElementById('client-list');
+      data.forEach((client) => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${client.id_user}</td>
+        <td>${client.last_name}</td>
+        <td>${client.first_name}</td>
+        <td>${client.tel}</td>
+        <td>${client.email}</td>
+        `;
+        clientList.appendChild(tr);
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  </script>
 </body>
 </html>

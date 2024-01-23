@@ -1,8 +1,11 @@
-// main.js
+import { app, BrowserWindow } from 'electron';
+import { join } from 'path';
+import Api from './a_js/Api_get.js';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-const { app, BrowserWindow } = require('electron');
-const path = require('node:path'); 
-const { chargerDonneesDepuisAPI } = require('./a_js/Api'); // Adjust the path accordingly
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const createWindow = () => {
     // Enable tabs
@@ -10,14 +13,13 @@ const createWindow = () => {
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js'),
+            preload: join(__dirname, 'preload.js'),
         },
     });
 
     mainWindow.loadFile('./html/Log.html');
 
-    // Call the imported function
-    chargerDonneesDepuisAPI(mainWindow.webContents);
+    Api.chargerDonneesDepuisAPI(mainWindow.webContents);
 };
 
 app.whenReady().then(() => {
