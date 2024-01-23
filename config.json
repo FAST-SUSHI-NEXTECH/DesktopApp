@@ -1,0 +1,5 @@
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJhZG1pbiIsInBlcm0iOjMsImlhdCI6MTcwNTE1MjE4NSwiZXhwIjoxNzA1MjM4NTg1fQ.CBAzWzMIj9TGZr_GGYf-W_yvbvpXAM2Tj7tIwGRnn7s",
+    "url_client" : "http://185.255.112.208:3000/user/client",
+    "url_login" : "http://185.255.112.208:3000/login"
+}
