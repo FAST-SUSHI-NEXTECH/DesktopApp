@@ -2,14 +2,14 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>FastSushi | Fiche Client</title>
+  <title>FastSushi | Panel Admin</title>
   <link rel="stylesheet" href="../css/client.css">
 </head>
 <body>
   <div class="sidebar">
     <div class="FastSushi">
       <a href="index.html" class="logo-link">
-        <div class="image-sushi"><img src="C:\images\logo_blanc.png"></div>
+        <div class="image-sushi"><img src="C:\image\logo_blanc.png"></div>
         <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
       </a>
     </div>
@@ -24,69 +24,56 @@
     <button id="logout">Quitter l'application</button>
   </div>
 
-  <div class="content">
+  <!-- Fiche client -->
+  <div class="content" id="client-details">
     <h1>Détails du Client</h1>
-    <div id="client-details">
-      <p><strong>ID:</strong> <span id="client-id"></span></p>
-      <p><strong>Nom:</strong> <span id="client-last-name"></span></p>
-      <p><strong>Prénom:</strong> <span id="client-first-name"></span></p>
-      <p><strong>Téléphone:</strong> <span id="client-phone"></span></p>
-      <p><strong>Email:</strong> <span id="client-email"></span></p>
-    </div>
   </div>
-<script>
-   // fiche-client.js
-
-   document.addEventListener('DOMContentLoaded', function () {
-  const clientDetailsContainer = document.getElementById('client-details');
-  const clientIdSpan = document.getElementById('client-id');
-  const clientLastNameSpan = document.getElementById('client-last-name');
-  const clientFirstNameSpan = document.getElementById('client-first-name');
-  const clientPhoneSpan = document.getElementById('client-phone');
-  const clientEmailSpan = document.getElementById('client-email');
-
-  // Récupère l'ID du client à partir de l'URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const clientId = urlParams.get('id');
-
-  // Vérifie si l'ID du client est présent dans l'URL
-  if (clientId) {
-    // Charge les détails du client en utilisant l'ID
-    fetch('../config.json')
-      .then(response => response.json())
-      .then(config => {
-        fetch(`${config.url_client}/${clientId}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${config.token}`,
-          }
-        })
-        .then(response => response.json())
-        .then(client => {
-          // Affiche les détails du client dans les champs correspondants
-          clientIdSpan.textContent = client.id_user;
-          clientLastNameSpan.textContent = client.last_name;
-          clientFirstNameSpan.textContent = client.first_name;
-          clientPhoneSpan.textContent = client.tel;
-          clientEmailSpan.textContent = client.email;
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-      })
-      .catch(error => {
-        console.error('Error:', error);
-      });
-  } else {
-    // Si l'ID du client n'est pas présent, affiche un message d'erreur
-    clientDetailsContainer.innerHTML = '<p>Client non trouvé.</p>';
-  }
-});
-</script>
 
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>
-  <script src="../a_js/fiche-client.js"></script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () {
+  // Fetch les données des clients depuis le serveur
+  fetch('../config.json')
+    .then(response => response.json())
+    .then(config => {
+      fetch(`${config.url_client}`, {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${config.token}`,
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Retrieve the selected client ID from localStorage
+        const selectedClientId = localStorage.getItem('selectedClientId');
+        // Find the selected client
+        const selectedClient = data.find(client => client.id_user === parseInt(selectedClientId));
+        // Update the client details
+        showClientDetails(selectedClient);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+
+  // Function to show client details
+  function showClientDetails(client) {
+    const clientDetailsContainer = document.getElementById('client-details');
+    clientDetailsContainer.innerHTML = `
+      <p><strong>ID:</strong> ${client.id_user}</p>
+      <p><strong>Nom:</strong> ${client.last_name}</p>
+      <p><strong>Prénom:</strong> ${client.first_name}</p>
+      <p><strong>Téléphone:</strong> ${client.tel}</p>
+      <p><strong>Email:</strong> ${client.email}</p>
+      <!-- Ajoutez d'autres mises à jour selon les besoins -->
+    `;
+  }
+});
+  </script>
 </body>
 </html>

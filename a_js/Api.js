@@ -1,7 +1,7 @@
 // Api.js
 async function chargerDonneesDepuisAPI(webContents) {
     const urlAPI = 'http://185.255.112.208:3000/user/client';
-    const authToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImNoaWVmIiwiaWF0IjoxNzAyODg2NzMwLCJleHAiOjE3MDI5NzMxMzB9.u6KqvrnMkIkCdHTSYhonDjZxSXdqIXC3eMAPv42GSvY';
+    const authToken = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwidXNlcm5hbWUiOiJhZG1pbiIsInBlcm0iOjMsImlhdCI6MTcwNjI1ODEzMSwiZXhwIjoxNzA2MzQ0NTMxfQ._xJcPfNewrBI3N5dDUZF5QwL0s5wr4ozi1gZ3LAOyK8';
 
     try {
         const reponse = await fetch(urlAPI, {

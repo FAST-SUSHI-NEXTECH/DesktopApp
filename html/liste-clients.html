@@ -9,7 +9,7 @@
   <div class="sidebar">
     <div class="FastSushi">
       <a href="index.html" class="logo-link">
-        <div class="image-sushi"><img src="C:\images\logo_blanc.png"></div>
+        <div class="image-sushi"><img src="C:\image\logo_blanc.png"></div>
         <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
       </a>
     </div>
@@ -23,7 +23,6 @@
     </ul>
     <button id="logout">Quitter l'application</button>
   </div>
-
 
   <!--Liste de client-->
   <div class="content">
@@ -40,7 +39,6 @@
         </tr>
       </thead>
       <tbody id="client-list"></tbody>
-
     </table>
   </div>
 
@@ -62,7 +60,7 @@
           .then(response => response.json())
           .then(data => {
             const clientList = document.getElementById('client-list');
-  
+
             // Ajoutez les clients à la table
             data.forEach((client) => {
               const tr = document.createElement('tr');
@@ -75,16 +73,18 @@
               `;
               clientList.appendChild(tr);
             });
-  
+
             // Ajoutez un gestionnaire d'événements pour les liens dans la liste des clients
             clientList.addEventListener('click', function (event) {
-              if (event.target.classList.contains('client-link')) {
-                event.preventDefault();
-                const clientId = event.target.getAttribute('data-client-id');
-                // Redirigez l'utilisateur vers la fiche du client en utilisant l'ID
-                window.location.href = `fiche-client.html?id=${clientId}`;
-              }
-            });
+  if (event.target.classList.contains('client-link')) {
+    event.preventDefault();
+    const clientId = event.target.getAttribute('data-client-id');
+    // Store the selected client ID in localStorage
+    localStorage.setItem('selectedClientId', clientId);
+    // Redirect the user to the fiche-client.html page
+    window.location.href = 'fiche-client.html';
+  }
+});
           })
           .catch((error) => {
             console.error('Error:', error);
@@ -95,6 +95,5 @@
         });
     });
   </script>
-  
 </body>
 </html>

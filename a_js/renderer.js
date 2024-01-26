@@ -1,3 +1,5 @@
+
+
 document.getElementById('logout').addEventListener('click', closeWindow);
 
 function closeWindow() {
