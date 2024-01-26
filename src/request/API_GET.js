@@ -25,7 +25,7 @@ fetch('../../../config.json')
       });
     })
     .catch((error) => {
-      console.error('Error:', error);j
+      console.error('Error:', error);
     });
   })
   .catch((error) => {
