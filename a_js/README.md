@@ -1,0 +1,1 @@
+To use the api we have make a file called "config.json" and we put everything who is sensitive
