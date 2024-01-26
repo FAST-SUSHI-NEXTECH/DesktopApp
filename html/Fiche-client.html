@@ -22,12 +22,15 @@
       <li><a href="parametres.html">Paramètres</a></li>
     </ul>
     <button id="logout">Quitter l'application</button>
+    
   </div>
 
   <!-- Fiche client -->
   <div class="content" id="client-details">
     <h1>Détails du Client</h1>
+    <button id="delete-client-btn">Supprimer le Client</button>
     <div id="client-details-content">
+      
     </div>
   </div>
   
@@ -61,7 +64,7 @@
       console.error('Error:', error);
     });
 
-  // Function to show client details
+  // fonction pour voir le détails des client
   function showClientDetails(client) {
   const clientDetailsContainer = document.getElementById('client-details-content');
   clientDetailsContainer.innerHTML = `
@@ -75,10 +78,38 @@
   `;
 }
 });
+
+//méthode pour supprimer un client
+// Ajoutez un gestionnaire d'événements pour le clic sur le bouton de suppression
+deleteClientBtn.addEventListener('click', function () {
+    // Récupérez l'ID du client ou toute autre information nécessaire
+    const clientId = selectedClient.id_user;
+
+    // Envoyez une requête DELETE au serveur pour supprimer le client
+    fetch(`../config.json`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id_user: clientId
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Suppression réussie :', data);
+        // Faites quelque chose après la suppression réussie, par exemple, rediriger ou actualiser la page
+      })
+      .catch(error => {
+        console.error('Erreur lors de la suppression :', error);
+      });
+  });
   </script>
 
   <script src="../main.js"></script>
   <script src="../a_js/renderer.js"></script>
+  <script src="../a_js/Api_delete.js"></script>
 
 </body>
 </html>

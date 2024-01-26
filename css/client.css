@@ -126,3 +126,19 @@ ul li a:hover {
 #client-table th {
   background-color: #f14949; /* Fond rouge pour les en-têtes */
 }
+
+/* Style du bouton de déconnexion */
+#delete-client-btn {
+  margin-top: 20px;
+  background-color: #d9534f; /* Fond rouge */
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+/* Changement de couleur au survol du bouton de déconnexion */
+#delete-client-btn:hover {
+  background-color: #c9302c;
+}
