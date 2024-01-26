@@ -38,46 +38,12 @@
           <th>date de la commande</th>
         </tr>
       </thead>
-      <tbody id="client-list"></tbody>
+      <tbody id="order-list"></tbody>
     </table>
   </div>
 
-  <script>
-    fetch('../../../config.json')
-      .then(response => response.json())
-      .then(config => {
-        fetch(`${config.url_order}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${config.token}`,
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          const clientList = document.getElementById('client-list');
-          data.forEach((client) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-            <td>${client.id_order}</td>
-            <td>${client.id_client}</td>
-            <td>${client.id_picker}</td>
-            <td>${client.order_state}</td>
-            <td>${client.date}</td>
-            `;
-            clientList.appendChild(tr);
-          });
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  </script>
-
-<script src="../../../main.js"></script>
-<script src="../../../renderer.js"></script>
+  <script src="../../../main.js"></script>
+  <script src="../../../renderer.js"></script>
+  <script src="../../request/API_GET.js"></script>
 </body>
 </html>
