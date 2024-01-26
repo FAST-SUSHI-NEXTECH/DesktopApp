@@ -12,14 +12,12 @@ ipcRenderer.on('update-data', (event, donnees) => {
 
   donnees.forEach((client) => {
     const row = document.createElement('tr');
-
-    const columns = ['id_user', 'last_name', 'first_name', 'tel', 'email'];
+     const columns = ['id_user', 'last_name', 'first_name', 'tel', 'email'];
     columns.forEach((column) => {
       const cell = document.createElement('td');
       cell.textContent = client[column];
       row.appendChild(cell);
     });
-
     clientList.appendChild(row);
   });
 });
