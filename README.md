@@ -9,7 +9,7 @@ The first command generate a file "package.json". If you want to use npm-script 
 
 For example to run electron with npm-script we used the script : "start": "electron ." <-- (this is the exact syntax, yes the quotes are include in it)
 
-    When you put this into your file "package.json". You can run your project later with "npm start"
+When you put this into the file "package.json". You can run your project later with "npm start"
 
 The second one create the folder "node_modules".
 

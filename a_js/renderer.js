@@ -14,7 +14,6 @@ ipcRenderer.on('update-data', (event, donnees) => {
   donnees.forEach((client) => {
     const row = document.createElement('tr');
 
-    // Ajouter les colonnes avec les données du client
     const columns = ['id_user', 'last_name', 'first_name', 'tel', 'email'];
     columns.forEach((column) => {
       const cell = document.createElement('td');
@@ -22,7 +21,6 @@ ipcRenderer.on('update-data', (event, donnees) => {
       row.appendChild(cell);
     });
 
-    // Ajouter la ligne à la table
     clientList.appendChild(row);
   });
 });
