@@ -27,10 +27,10 @@
   <!-- Fiche client -->
   <div class="content" id="client-details">
     <h1>Détails du Client</h1>
+    <div id="client-details-content">
+    </div>
   </div>
-
-  <script src="../main.js"></script>
-  <script src="../a_js/renderer.js"></script>
+  
   <script>
    document.addEventListener('DOMContentLoaded', function () {
   // Fetch les données des clients depuis le serveur
@@ -63,17 +63,22 @@
 
   // Function to show client details
   function showClientDetails(client) {
-    const clientDetailsContainer = document.getElementById('client-details');
-    clientDetailsContainer.innerHTML = `
-      <p><strong>ID:</strong> ${client.id_user}</p>
-      <p><strong>Nom:</strong> ${client.last_name}</p>
-      <p><strong>Prénom:</strong> ${client.first_name}</p>
-      <p><strong>Téléphone:</strong> ${client.tel}</p>
-      <p><strong>Email:</strong> ${client.email}</p>
-      <!-- Ajoutez d'autres mises à jour selon les besoins -->
-    `;
-  }
+  const clientDetailsContainer = document.getElementById('client-details-content');
+  clientDetailsContainer.innerHTML = `
+    <p><strong>ID:</strong> ${client.id_user}</p>
+    <p><strong>Nom:</strong> ${client.last_name}</p>
+    <p><strong>Prénom:</strong> ${client.first_name}</p>
+    <p><strong>Téléphone:</strong> ${client.tel}</p>
+    <p><strong>Email:</strong> ${client.email}</p>
+    <p><strong>Mots de passe:</strong> ${client.password}</p>
+    <!-- Ajoutez d'autres mises à jour selon les besoins -->
+  `;
+}
 });
   </script>
+
+  <script src="../main.js"></script>
+  <script src="../a_js/renderer.js"></script>
+
 </body>
 </html>
