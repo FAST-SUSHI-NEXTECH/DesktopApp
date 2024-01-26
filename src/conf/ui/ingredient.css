@@ -3,10 +3,6 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-.wrapper {
-  display: flex;
-}
-
 .sidebar {
   height: 100%;
   width: 250px;
@@ -87,7 +83,24 @@ ul li a:hover {
 }
 
 .content {
-  flex-grow: 1;
   padding: 20px;
-  color: black;
-}
+  margin-left: 235px;
+  }
+  
+  #ingredient-table {
+  width: 90%;
+  margin-left: auto; 
+  margin-right: auto;
+  border-collapse: collapse;
+  margin-top: 20px;
+  }
+  
+  #ingredient-table th, #ingredient-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  }
+  
+  #ingredient-table th {
+  background-color: #f2f2f2;
+  }

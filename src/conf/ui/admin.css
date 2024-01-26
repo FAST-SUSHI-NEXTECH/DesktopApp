@@ -14,7 +14,7 @@ body {
   background: linear-gradient( #000000, #f14949); /* Dégradé noir à rouge */
   padding-top: 20px;
   color: orangered;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -23,7 +23,6 @@ body {
 .FastSushi {
   text-align: center;
   margin-bottom: 20px;
-  margin-right: 40px;
 }
 
 /* Style de l'image dans "FastSushi" */
@@ -39,10 +38,12 @@ body {
 
 /* Style des éléments "Fast" et "Sushi" dans "FastSushi" */
 .FastSushi .Fast {
+  font-size: 24px; /* Taille de police */
   color: orangered;
 }
 
 .FastSushi .Sushi {
+  font-size: 24px; /* Taille de police */
   color: whitesmoke;
 }
 
@@ -59,6 +60,7 @@ ul li {
 
 /* Style des liens a dans les éléments li */
 ul li a {
+  font-size: 20px; /* Taille de police */
   text-decoration: none;
   color: whitesmoke;
   display: block;
@@ -76,6 +78,7 @@ ul li a:hover {
 /* Style du bouton de déconnexion */
 #logout {
   margin-top: 20px;
+  font-size: 20px; /* Taille de police */
   background-color: #d9534f; /* Fond rouge */
   color: white;
   padding: 10px;

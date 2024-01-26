@@ -3,10 +3,6 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
-.wrapper {
-  display: flex;
-}
-
 .sidebar {
   height: 100%;
   width: 250px;
@@ -84,10 +80,4 @@ ul li a:hover {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-}
-
-.content {
-  flex-grow: 1;
-  padding: 20px;
-  color: black;
 }
