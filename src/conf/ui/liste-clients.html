@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FastSushi | Panel Admin</title>
+  <link rel="stylesheet" href="client.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="FastSushi">
+      <a href="index.html" class="logo-link">
+        <div class="image-sushi"><img src="../../../image/logo_blanc.png"></div>
+        <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
+      </a>
+    </div>
+    <ul>
+      <li><a href="liste-clients.html">Liste Client</a></li>
+      <li><a href="admin-menus.html">Menu Sushi</a></li>
+      <li><a href="gestion-ingredients.html">Gestion Ingrédients</a></li>
+      <li><a href="ticket.html">Ticket</a></li>
+      <li><a href="commandes-cours.html">Historique de commande</a></li>
+      <li><a href="parametres.html">Paramètres</a></li>
+    </ul>
+    <button id="logout">Quitter l'application</button>
+  </div>
+
+  <div class="content">
+    <h1>Liste des Clients</h1>
+    <input type="search" id="searchInput" placeholder="rechercher un client">
+    <table id="client-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Téléphone</th>
+          <th>Email</th>
+          <th>Nom d'utilisateur</th>
+        </tr>
+      </thead>
+      <tbody id="client-list"></tbody>
+    </table>
+  </div>
+
+  <script src="../../../main.js"></script>
+  <script src="../../../renderer.js"></script>
+  <script src="../../request/API_GET.js"></script>
+</body>
+</html>

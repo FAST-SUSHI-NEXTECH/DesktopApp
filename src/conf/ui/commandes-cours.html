@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>FastSushi | Panel Admin</title>
+  <link rel="stylesheet" href="commande.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="FastSushi">
+      <a href="index.html" class="logo-link">
+        <div class="image-sushi"><img src="../../../image/logo_blanc.png"></div>
+        <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
+      </a>
+    </div>
+    <ul>
+      <li><a href="liste-clients.html">Liste Client</a></li>
+      <li><a href="admin-menus.html">Menu Sushi</a></li>
+      <li><a href="gestion-ingredients.html">Gestion Ingrédients</a></li>
+      <li><a href="ticket.html">Ticket</a></li>
+      <li><a href="commandes-cours.html">Historique de commande</a></li>
+      <li><a href="parametres.html">Paramètres</a></li>
+    </ul>
+    <button id="logout">Quitter l'application</button>
+  </div>
+
+  <!--Liste de client-->
+  <div class="content">
+    <h1>Liste des Commandes</h1>
+    <table id="client-table">
+      <thead>
+        <tr>
+          <!--Intitule de la liste-->
+          <th>ID_order</th>
+          <th>Client</th>
+          <th>Préparateur</th>
+          <th>état de la commande</th>
+          <th>date de la commande</th>
+        </tr>
+      </thead>
+      <tbody id="order-list"></tbody>
+    </table>
+  </div>
+
+  <script src="../../../main.js"></script>
+  <script src="../../../renderer.js"></script>
+  <script src="../../request/API_GET.js"></script>
+</body>
+</html>
