@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function showClientDetails(client) {
     const clientDetailsContainer = document.getElementById('client-details-content');
     clientDetailsContainer.innerHTML = `
+      <p><strong>Nom d'utilisateur:</strong> ${client.username}</p>
       <p><strong>ID:</strong> ${client.id_user}</p>
       <p><strong>Nom:</strong> ${client.last_name}</p>
       <p><strong>Prénom:</strong> ${client.first_name}</p>
@@ -184,6 +185,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <td>${client.first_name}</td>
               <td>${client.tel}</td>
               <td>${client.email}</td>
+              <td>${client.username}</td>
             `;
             clientList.appendChild(tr);
           });
@@ -241,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <td>${client.first_name}</td>
         <td>${client.tel}</td>
         <td>${client.email}</td>
+        <td>${client.username}</td>
       `;
       clientList.appendChild(tr);
     });
