@@ -30,7 +30,7 @@
   <div class="content">
     <h1>Liste des Clients</h1>
       <!--Barre de recherche-->
-      <input type="search" id="searchInput" placeholder="recherche un client">
+      <input type="search" id="searchInput" placeholder="rechercher un client">
     <table id="client-table">
       <thead>
         <tr>
@@ -101,9 +101,7 @@
               const filteredClients = data.filter(client =>
                 client.id_user.toString().toLowerCase().includes(searchTerm) || // Recherche par ID utilisateur
                 client.last_name.toLowerCase().includes(searchTerm) ||
-                client.first_name.toLowerCase().includes(searchTerm) ||
-                client.tel.includes(searchTerm) ||
-                client.email.toLowerCase().includes(searchTerm)
+                client.first_name.toLowerCase().includes(searchTerm) 
               );
               // Mettez à jour l'affichage de la liste des clients avec les résultats filtrés
               updateClientList(filteredClients);
@@ -138,6 +136,5 @@
       });
     }
   </script>
-  
 </body>
 </html>
