@@ -11,8 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
           'Authorization': `Bearer ${config.token}`,
         }
       })
-      .then(response => response.json())
+      .then(response  =>response.json())
       .then(data => {
+        //constante pour la liste des clients 
         const clientList = document.getElementById('client-list');
 
         // Ajoutez les clients à la table
