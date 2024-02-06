@@ -1,3 +1,4 @@
+// Request GET pour récupérer les données des clients dans le fichier list-clients.html dans l'id tableau client-list
 document.addEventListener('DOMContentLoaded', function () {
   // Fetch les données des clients depuis le serveur
   fetch('../../../config.json')
@@ -49,6 +50,7 @@ window.location.href = 'fiche-client.html';
     });
 });
 
+// Request GET pour avoir les last commandes dans le fichier list-commandes.html dans l'id tableau order-list
 fetch('../../../config.json')
   .then(response => response.json())
   .then(config => {
@@ -82,40 +84,8 @@ fetch('../../../config.json')
     console.error('Error:', error);
   });
 
-  fetch('../../../config.json')
-  .then(response => response.json())
-  .then(config => {
-    fetch(`${config.url_client}`, {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'Authorization': `Bearer ${config.token}`,
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      const orderList = document.getElementById('order-list');
-      data.forEach((order) => {
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-        <td>${order.id_order}</td>
-        <td>${order.id_client}</td>
-        <td>${order.id_picker}</td>
-        <td>${order.order_state}</td>
-        <td>${order.date}</td>
-        `;
-        orderList.appendChild(tr);
-      });
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  })
-  .catch((error) => {
-    console.error('Error:', error);
-  });
-
-document.addEventListener('DOMContentLoaded', function () {
+// Request GET qui prend en settings la barre de recherche 
+  document.addEventListener('DOMContentLoaded', function () {
     // Fetch les données des clients depuis le serveur
     fetch('../../../config.json')
       .then(response => response.json())
@@ -160,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   });
 
+  //Permet de faire la recherche depuis le nom, le prenom ou l'id du client
 document.addEventListener('DOMContentLoaded', function () {
     // Fetch les données des clients depuis le serveur
     fetch('../../../config.json')
