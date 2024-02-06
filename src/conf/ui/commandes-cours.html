@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <title>FastSushi | Panel Admin</title>
-  <link rel="stylesheet" href="../css/commande.css">
+  <link rel="stylesheet" href="commande.css">
 </head>
 <body>
   <div class="sidebar">
     <div class="FastSushi">
       <a href="index.html" class="logo-link">
-      <div class="image-sushi"><img src="C:\image\logo_blanc.png"></div>
+      <div class="image-sushi"><img src="../../../image/logo_blanc.png"></div>
         <h2><span class="Fast">Fast</span><span class="Sushi">Sushi</span></h2>
       </a>
     </div>
     <ul>
       <li><a href="liste-clients.html">Liste Client</a></li>
-      <li><a href="admin-menus.html">Admin Menus</a></li>
+      <li><a href="admin-menus.html">Menu Sushi</a></li>
       <li><a href="gestion-ingredients.html">Gestion Ingrédients</a></li>
       <li><a href="ticket.html">Ticket</a></li>
       <li><a href="commandes-cours.html">Historique de commande</a></li>
@@ -38,46 +38,12 @@
           <th>date de la commande</th>
         </tr>
       </thead>
-      <tbody id="client-list"></tbody>
+      <tbody id="order-list"></tbody>
     </table>
   </div>
 
-  <script>
-    fetch('../config.json')
-      .then(response => response.json())
-      .then(config => {
-        fetch(`${config.url_order}`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Authorization': `Bearer ${config.token}`,
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          const clientList = document.getElementById('client-list');
-          data.forEach((client) => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `
-            <td>${client.id_order}</td>
-            <td>${client.id_client}</td>
-            <td>${client.id_picker}</td>
-            <td>${client.order_state}</td>
-            <td>${client.date}</td>
-            `;
-            clientList.appendChild(tr);
-          });
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  </script>
-
-  <script src="../main.js"></script>
-  <script src="../a_js/renderer.js"></script>
+  <script src="../../../main.js"></script>
+  <script src="../../../renderer.js"></script>
+  <script src="../../request/API_GET.js"></script>
 </body>
 </html>
