@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <td>${client.first_name}</td>
             <td>${client.tel}</td>
             <td>${client.email}</td>
+            <td>${client.username}</td>
           `;
           clientList.appendChild(tr);
         });
