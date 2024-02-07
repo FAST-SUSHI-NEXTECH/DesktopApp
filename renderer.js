@@ -1,6 +1,5 @@
 document.getElementById('logout').addEventListener('click', closeWindow);
-
-function closeWindow() {
+  function closeWindow() {
     let newWindow = open(location, '_self');
     newWindow.close();
 }
