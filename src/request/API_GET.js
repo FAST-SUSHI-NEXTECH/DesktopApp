@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   fetch('../../../config.json')
     .then(response => response.json())
     .then(config => {
-      fetch(`${config.url_client}`, {
+      fetch(`${config.url}/user/client`, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -55,7 +55,7 @@ window.location.href = 'fiche-client.html';
 fetch('../../../config.json')
   .then(response => response.json())
   .then(config => {
-    fetch(`${config.url_order}`, {
+    fetch(`${config.url}/order`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -91,7 +91,7 @@ fetch('../../../config.json')
     fetch('../../../config.json')
       .then(response => response.json())
       .then(config => {
-        fetch(`${config.url_client}`, {
+        fetch(`${config.url}/user/client`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('../../../config.json')
       .then(response => response.json())
       .then(config => {
-        fetch(`${config.url_client}`, {
+        fetch(`${config.url}/user/client`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
