@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const deleteClientBtn = document.getElementById('delete-client-btn');
 
     // Ajoutez un gestionnaire d'événements pour le bouton "Supprimer le Client"
-    deleteClientBtn.addEventListener('click', function () {
+    deleteClientBtn.addEventListener('click', function (username) {
         // Récupérer l'identifiant du client sélectionné depuis le stockage local
         const selectedClientId = localStorage.getItem('selectedClientId');
     
@@ -15,12 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(config => {
                     // Effectuer une requête DELETE vers l'URL du client spécifié
-                    fetch(`${config.url_delete}/${selectedClientId}`, {
+                    fetch(`${config.url_delete}`, {
                         method: 'DELETE',
                         headers: {
-                            'Accept': 'application/json',
+                            'accept': 'application/json',
                             'Authorization': `Bearer ${config.token}`,
-                        }
+                            'content-type' : 'application/json'
+                        },
+                        
                     })
                     .then(response => {
                         // Vérifier si la suppression a réussi

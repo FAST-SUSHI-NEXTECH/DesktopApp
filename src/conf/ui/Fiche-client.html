@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>FastSushi | Panel Admin</title>
+  <title>FastSushi | Détails du Client</title>
   <link rel="stylesheet" href="client.css">
 </head>
 <body>
@@ -22,22 +22,20 @@
       <li><a href="parametres.html">Paramètres</a></li>
     </ul>
     <button id="logout">Quitter l'application</button>
-    
   </div>
 
   <!-- Fiche client -->
   <div class="content" id="client-details">
     <h1>Détails du Client</h1>
-    <button id="delete-client-btn">Supprimer le Client</button>
     <div id="client-details-content">
-      
+      <p><strong>ID:</strong> <span id="client-id"></span></p>
+      <p><strong>Nom:</strong> <span id="client-last-name"></span></p>
+      <p><strong>Prénom:</strong> <span id="client-first-name"></span></p>
+      <p><strong>Téléphone:</strong> <span id="client-phone"></span></p>
+      <p><strong>Email:</strong> <span id="client-email"></span></p>
+      <p><strong>Nom d'utilisateur:</strong> <span id="client-username"></span></p>
     </div>
   </div>
-<script src="../../../main.js"></script>
-<script src="../../../renderer.js"></script>
-<script src="../../request/API_GET.js"></script>
-<script src="../../request/API_DELETE.js"></script>
-
 
 </body>
 </html>

@@ -1,3 +1,5 @@
+import { ipcRenderer } from 'electron';
+
 document.getElementById('logout').addEventListener('click', closeWindow);
 
 function closeWindow() {
@@ -5,7 +7,7 @@ function closeWindow() {
     newWindow.close();
 }
 
-import { ipcRenderer } from 'electron';
+
 
 ipcRenderer.on('update-data', (event, donnees) => {
   const clientList = document.getElementById('client-list');
