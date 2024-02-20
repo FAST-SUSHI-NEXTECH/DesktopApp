@@ -5,3 +5,5 @@ node_modules
 
 # Ignore output files
 out
+#Ignore conf files
+config.js
