@@ -1,0 +1,7 @@
+# gitignore file 
+
+# Ignore node_modules
+node_modules
+
+# Ignore output files
+out
