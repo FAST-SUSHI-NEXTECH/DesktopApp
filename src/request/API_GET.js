@@ -55,7 +55,7 @@ window.location.href = 'fiche-client.html';
 fetch('../../../config.json')
   .then(response => response.json())
   .then(config => {
-    fetch(`${config.url}/order`, {
+    fetch(`${config.url}/order/all`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',

@@ -4,7 +4,7 @@ let config = readFileSync('../../config.json', 'utf8');
 
 config = JSON.parse(config);
 
-const url = config.url_login;
+const url = config.url +'/login';
 
 const username = config.username; 
 const password = config.password;

@@ -7,3 +7,4 @@ The first command generate a file "package.json" where you have all your depende
 The second one create the folder "node_modules" And then you can run everything with "npm start", the default id is "Test" and the password is "1" .
 
 If you use VsCODE you will probably need some extensions to run everything
+[Test Graph](./src/doc/Graph.md)
