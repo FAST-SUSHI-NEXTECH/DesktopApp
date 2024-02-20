@@ -1,15 +1,15 @@
 //ORDER
-fetch('../../../conf.js')
-.then(response => response.json())
+fetch('../../config.js')
+.then(response => response.js())
 .then(config => {
   fetch(`${config.url_order}`, {
     method: 'GET',
     headers: {
-      'Accept': 'application/json',
+      'Accept': 'application/js',
       'Authorization': `Bearer ${config.token}`,
     }
   })
-  .then(response => response.json())
+  .then(response => response.js())
   .then(data => {
     const orderList = document.getElementById('order-list');
     data.forEach((order) => {

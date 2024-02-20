@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', async function () {
     try {
-        // Chargement de la configuration depuis config.json
-        const configResponse = await fetch('../../../config.json');
-        const config = await configResponse.json();
+        // Chargement de la configuration depuis config.js
+        const configResponse = await fetch('../../config.js');
+        const config = await configResponse.js();
 
         // Récupération des données des clients depuis le serveur
         const response = await fetch(config.url_client, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
+                'Accept': 'application/js',
                 'Authorization': `Bearer ${config.token}`,
             }
         });
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             throw new Error('Erreur lors de la récupération des données des clients');
         }
 
-        const data = await response.json();
+        const data = await response.js();
 
         // Affichage initial de la liste des clients
         updateClientList(data);

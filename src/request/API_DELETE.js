@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const isConfirmed = window.confirm('Voulez-vous vraiment supprimer ce client ?');
         // Si l'utilisateur confirme la suppression
         if (isConfirmed) {
-            // récupère la configuration dans le fichier config.json
-            fetch('../../../config.json')
-                .then(response => response.json())
+            // récupère la configuration dans le fichier config.js
+            fetch('../../config.js')
+                .then(response => response.js())
                 .then(config => {
                     // Effectuer une requête DELETE vers l'URL du client spécifié
                     fetch(`${config.url_delete}`, {
                         method: 'DELETE',
                         headers: {
-                            'accept': 'application/json',
+                            'accept': 'application/js',
                             'Authorization': `Bearer ${config.token}`,
-                            'content-type' : 'application/json'
+                            'content-type' : 'application/js'
                         },
                         
                     })
