@@ -1,15 +1,8 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { url_login, username, password } from '../../config.js';
 
+const url = url_login;
 
-let config = readFileSync('../../../config.js', 'utf8');
-
-config = JSON.parse(config);
-
-const url = config.url_login;
-
-const username = config.username; 
-const password = config.password;
-fetch(url, {
+fetch(url_login, {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -26,7 +19,7 @@ fetch(url, {
   
   const mergedData = {...config, ...data};
   
-  writeFileSync('../../../config.js', JSON.stringify(mergedData, null, 2));
+  // Écrivez les données fusionnées dans le fichier de configuration si nécessaire
 })
 .catch((error) => {
   console.error('Error:', error);

@@ -37,5 +37,29 @@
     </div>
   </div>
 
+  <script src="../../request/API_GET_CLIENT.js" type="module"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+      try {
+        const selectedClientId = localStorage.getItem('selectedClientId');
+        if (!selectedClientId) {
+          console.error("L'identifiant du client sélectionné n'a pas été trouvé dans le stockage local.");
+          return;
+        }
+
+        const clientDetails = await getClientByID(selectedClientId);
+
+        document.getElementById('client-id').innerText = clientDetails.id;
+        document.getElementById('client-last-name').innerText = clientDetails.last_name;
+        document.getElementById('client-first-name').innerText = clientDetails.first_name;
+        document.getElementById('client-phone').innerText = clientDetails.tel;
+        document.getElementById('client-email').innerText = clientDetails.email;
+        document.getElementById('client-username').innerText = clientDetails.username;
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
 </body>
 </html>
