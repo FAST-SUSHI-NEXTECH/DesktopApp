@@ -1,11 +1,10 @@
-// Importer les variables de configuration
 import {ip} from '../../config.js';
 
 // Fonction pour récupérer les détails du client par son ID
 export async function getClientByID(id_user) {
 
   try {
-    const response = await fetch(ip +"/user/id", {
+    const response = await fetch(ip +'/user/id', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

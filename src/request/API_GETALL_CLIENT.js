@@ -1,8 +1,8 @@
-import { ip} from '../../config.js';
+import {ip} from '../../config.js';
 
 document.addEventListener('DOMContentLoaded', async function () {
     try {
-        const response = await fetch(ip +"/user/client", {
+        const response = await fetch(ip + '/user/client', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -17,18 +17,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         const data = await response.json();
 
         updateClientList(data);
-
-        const searchInput = document.getElementById('searchInput');
-
-        searchInput.addEventListener('input', function () {
-            const searchTerm = this.value.trim().toLowerCase();
-            const filteredClients = data.filter(client =>
-                client.id_user.toString().toLowerCase().includes(searchTerm) ||
-                client.last_name.toLowerCase().includes(searchTerm) ||
-                client.first_name.toLowerCase().includes(searchTerm)
-            );
-            updateClientList(filteredClients);
-        });
 
     } catch (error) {
         console.error('Error:', error);
@@ -58,9 +46,9 @@ function updateClientList(clients) {
         const clientLink = tr.querySelector('.client-link');
         clientLink.addEventListener('click', function(event) {
             event.preventDefault();
-            const clientId = this.getAttribute('data-client-id');
+            const clientId = client.id_user; // Récupérez l'ID du client à partir du lien
             localStorage.setItem('selectedClientId', clientId);
-            window.location.href = './Fiche-client.html';
+            window.location.href = './Fiche-client.html?id=' + clientId; // Ajoutez l'ID du client au lien
         });
     });
 }
