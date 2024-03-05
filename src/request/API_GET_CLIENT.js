@@ -1,24 +1,28 @@
 // Importer les variables de configuration
-import { token, url_client } from '../../config.js';
+import {ip} from '../../config.js';
 
 // Fonction pour récupérer les détails du client par son ID
-export async function getClientByID(id) {
+export async function getClientByID(id_user) {
+
   try {
-    const response = await fetch(`${url_client}/${id}`, {
-      method: 'GET',
+    const response = await fetch(ip +"/user/id", {
+      method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Authorization': 'Bearer ' + token,
-      }
+        'Authorization': 'Bearer ' + localStorage.getItem('token'),
+      },
+      body: JSON.stringify({id_user})
     });
 
     if (!response.ok) {
       throw new Error('Erreur lors de la récupération des données du client');
     }
 
-    return await response.json();
+    const data = await response.json();
+    return (data);
   } catch (error) {
-    console.error('Error:', error);
-    throw error; // Rejeter l'erreur pour la gérer à l'extérieur
-  }
+    alert(error);
+    console.log(error);
+    return null; // Renvoie null en cas d'erreur
+}
 }
