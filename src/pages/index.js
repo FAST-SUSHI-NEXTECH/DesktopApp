@@ -35,7 +35,7 @@ function logout() {
 }
 
 if (!checkIfLoggedIn()) {
-  window.location.href = './login/login.html';
+  window.location.href = './index.html';
 }
 
 // Handle navigation
