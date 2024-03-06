@@ -1,4 +1,4 @@
-//ORDER
+
 fetch('../../config.js')
 .then(response => response.js())
 .then(config => {
@@ -31,4 +31,3 @@ fetch('../../config.js')
 .catch((error) => {
   console.error('Error:', error);
 });
-//FIN ORDER

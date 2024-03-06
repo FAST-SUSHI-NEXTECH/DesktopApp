@@ -31,35 +31,60 @@
       <p><strong>ID:</strong> <span id="client-id"></span></p>
       <p><strong>Nom:</strong> <span id="client-last-name"></span></p>
       <p><strong>Prénom:</strong> <span id="client-first-name"></span></p>
-      <p><strong>Téléphone:</strong> <span id="client-phone"></span></p>
-      <p><strong>Email:</strong> <span id="client-email"></span></p>
       <p><strong>Nom d'utilisateur:</strong> <span id="client-username"></span></p>
+      <p><strong>Email:</strong> <span id="client-email"></span></p>
+      <p><strong>Téléphone:</strong> <span id="client-tel"></span></p>
+      <p><strong>Permission:</strong> <span id="permission"></span>
+      
     </div>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const clientId = urlParams.get('id');
 
-  <script type="module">
-  import {getClientByID} from "../../request/API_GET_CLIENT.js";
+        try {
+            const response = await fetch('http://185.255.112.208:3000/user/id', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
+                },
+                body: JSON.stringify({ id_user: clientId })
+            });
 
+            if (!response.ok) {
+                throw new Error('Erreur lors de la récupération des données du client');
+            }
 
-    document.addEventListener('DOMContentLoaded',async function () {
-        const queryString = window.location.search;
-        const urlParam = new URLSearchParams(queryString);
+            const clientData = await response.json();
+            displayClientDetails(clientData);
+            console.log(clientData);
 
-        const id = urlParam.get('id');
-        console.log(id);
-
-        const clientDetails = await getClientByID(id);
-
-        console.log(clientDetails);
-
-       
-        document.getElementById('client-id').innerText = clientDetails.id_user;
-        document.getElementById('client-last-name').innerText = clientDetails.last_name;
-        document.getElementById('client-first-name').innerText = clientDetails.first_name;
-        document.getElementById('client-phone').innerText = clientDetails.tel;
-        document.getElementById('client-email').innerText = clientDetails.email;
-        document.getElementById('client-username').innerText = clientDetails.username;
+        } catch (error) {
+            console.error('Error:', error);
+        }
     });
+
+    function displayClientDetails(clientData) {
+        const clientDetailsDiv = document.getElementById('client-details'); 
+        if (!clientDetailsDiv) {
+            console.error("L'élément avec l'ID 'client-details' n'a pas été trouvé."); 
+            return;
+        }
+
+        const clientInfoHTML = `
+    <p><strong>ID Utilisateur:</strong> ${clientData.id_user}</p>
+    <p><strong>Nom:</strong> ${clientData.last_name}</p>
+    <p><strong>prénom:</strong>${clientData.first_name}</p>
+    <p><strong>Nom d'utilisateur:</strong> ${clientData.username}</p>
+    <p><strong>Email:</strong> ${clientData.email}</p>
+    <p><strong>Téléphone:</strong> ${clientData.tel}</p>
+    <p><strong>Permission:</strong> ${clientData.permission}</p>
+`;
+        clientDetailsDiv.innerHTML = clientInfoHTML;
+    }
   </script>
 </body>
 </html>
